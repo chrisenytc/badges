@@ -1,0 +1,40 @@
+{
+    "name": "badges",
+    "private": true,
+    "version": "0.1.0",
+    "description": "GitHub Badges manager",
+    "homepage": "https://github.com/enytc/badges",
+    "author": {
+      "name": "Christopher EnyTC",
+      "email": "chrisenytc@gmail.com",
+      "url": "http://chris.enytc.com"
+    },
+    "dependencies": {
+        "sails": "0.9.7",
+        "grunt": "0.4.1",
+        "sails-disk": "~0.9.0",
+        "ejs": "0.8.4",
+        "optimist": "0.3.4",
+        "gngb-api": "~0.1.1",
+        "forever": "latest"
+    },
+    "scripts": {
+        "start": "node web.js",
+        "debug": "node debug web.js"
+    },
+    "main": "app.js",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/enytc/badges.git"
+    },
+    "bugs": {
+      "url": "https://github.com/enytc/badges/issues"
+    },
+    "licenses": [
+      {
+        "type": "BSD",
+        "url": "https://github.com/enytc/badges/blob/master/LICENSE"
+      }
+    ],
+    "keywords": ["github", "npm", "gem", "bower", "badges"]
+}

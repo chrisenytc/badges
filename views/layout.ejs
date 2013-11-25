@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- title %></title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- PureCSS -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- Model Template -->
+    <script type="text/x-handlebars">
+      <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <header class="header">
+                <hgroup>
+                     <h1 class="brand-title"><%- title %></h1>
+                     <h2 class="brand-tagline">Use version badges for GitHub, NPM, Gem and Bower.</h2>
+                </hgroup>
+
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="pure-button" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="/for/npm">NPM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="/for/gem">Gem</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="/for/bower">Bower</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="pure-button" href="/for/gh">GitHub</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="pure-u-1">
+            <div class="content">
+                    {{outlet}}
+                <footer class="footer">
+                    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                        <ul>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/about/api">API</a></li>
+                            <li><a href="/about/contributors">Contributors</a></li>
+                            <li><a href="https://github.com/enytc/badges" target="_blank">Github</a></li>
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                      <p>
+                        This site is built with <3 using Pure v0.3.0
+                      </p>
+                      <p>All code on this site is licensed under the <a href="">BSD License</a> unless stated otherwise.</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <a href="https://github.com/enytc/badges" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    </script>
+    <script type="text/x-handlebars" data-template-name="gettingstarted">
+      <h1 class="content-subhead">Getting Started</h1>
+      <p>Badges provides a consistent way for the community to learn about the package associated with a particular Github repository and other documentation pages. Once the package owner adds this badge to their README file, it will inform and link all visitors to the latest version of that package. If you have any questions, problems, or suggestions please don't hesitate to let us know.</p>
+    </script>
+    <!--Model Template-->
+    <script type="text/x-handlebars" data-template-name="model">
+        {{#if exists}}
+          <div class="page-container">
+            <div class="result-box">
+                <form class="pure-form  pure-form-stacked">
+                  <div class="page-container">
+                    <img id="badge-image" {{bind-attr src=data.image}} alt="Badge Example">
+                  </div>
+                  <fieldset>
+                    <label for="email">Markdown</label>
+                    {{input type="text" class="pure-input-1" value=data.markdown}}
+                    <label for="email">Textile</label>
+                    {{input type="text" class="pure-input-1" value=data.textile}}
+                    <label for="email">RDoc</label>
+                    {{input type="text" class="pure-input-1" value=data.rdoc}}
+                    <label for="email">AsciiDoc</label>
+                    {{input type="text" class="pure-input-1" value=data.asciidoc}}
+                    </fieldset>
+                </form>
+            </div>
+          </div>
+        {{else}}
+        <div id="search-cat">
+            <img src="/images/codercat.jpg" width="400px" height="400px" alt="InspectoCat"/>
+        </div>
+        <div id="loading-box">
+          <div id="loading"></div>
+          <div>Loading...</div>
+        </div>
+        {{/if}}
+    </script>
+    <!-- Index Template -->
+    <script type="text/x-handlebars" data-template-name="index">
+      <div class="page-container">
+        <div class="welcome">
+          <img src="/images/codercat.jpg" width="400px" height="400px" alt="CoderCat"/>
+          <h2>Welcome to Badges</h2>
+          <p>Choose a service to make a version badges to use in your projects</p>
+        </div>
+      </div>
+    </script>
+    <!-- About Template -->
+    <script type="text/x-handlebars" data-template-name="about">
+      <div class="page-container">
+        <h1 class="content-subhead">About Badges</h1>
+          <p>Badges provides a consistent way for the community to learn about the package associated with a particular Github repository and other documentation pages. Once the package owner adds this badge to their README file, it will inform and link all visitors to the latest version of that package. If you have any questions, problems, or suggestions please don't hesitate to let us know.</p>
+          <p>Thanks to <a href="https://github.com/lucasLimay">Lucas Lima</a> contribute to the project by designing the badges.</p>
+        <h1 class="content-subhead">Support</h1>
+          <p>If you have any problem or suggestion please open an issue <a href="http://github.com/enytc/badges">here</a>.</p>
+        <h1 class="content-subhead">Contributing</h1>
+          <p>Please submit all issues and pull requests to the <a href="http://github.com/enytc/badges">enytc/badges</a> repository!</a>
+        <h1 class="content-subhead">Donate</h1>
+          <p>Do You like Badges? You can help the project by making a donation of any value.</p>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="B8N2SHXZCAASU">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+          </form>
+      </div>
+    </script>
+    <!-- API Template -->
+    <script type="text/x-handlebars" data-template-name="api">
+      <div class="page-container">
+        <h1 class="content-subhead">How to use Badges API</h1>
+        <p>Welcome to Badges API Reference.</p>
+        <p>To use the API you need to do Badges GET or POST requests to <code class="code">badges.enytc.com/api</code> to receive informations</p>
+      <h1 class="content-subhead">Get GitHub Badge</h1>
+      <p>
+        <code class="code">GET /api/gh/[username]/[package].png</code>
+      </p>
+
+      <h1 class="content-subhead">Get NPM Badge</h1>
+      <p>
+        <code class="code">GET /api/npm/[package].png</code>
+      </p>
+
+      <h1 class="content-subhead">Get Gem Badge</h1>
+      <p>
+        <code class="code">GET /api/gem/[package].png</code>
+      </p>
+
+      <h1 class="content-subhead">Get Bower Badge</h1>
+      <p>
+        <code class="code">GET /api/bower/[username]/[package].png</code>
+      </p>
+
+      <br />
+      <br />
+      <h1 class="content-subhead">Get GitHub Input Models</h1>
+      <p>
+        <code class="code">GET /api/gh?username=[username]&package=[package]</code>
+      </p>
+
+      <h1 class="content-subhead">Get NPM Input Models</h1>
+      <p>
+        <code class="code">GET /api/npm?package=[package]</code>
+      </p>
+
+      <h1 class="content-subhead">Get Gem Input Models</h1>
+      <p>
+        <code class="code">GET /api/gem?package=[package]</code>
+      </p>
+
+      <h1 class="content-subhead">Get Bower Input Models</h1>
+      <p>
+        <code class="code">GET /api/bower?username=[username]&package=[package]</code>
+      </p>
+
+     </div>
+    </script>
+    <!-- Contributors Template -->
+    <script type="text/x-handlebars" data-template-name="contributors">
+      <h1 class="content-subhead">Contributors</h1>
+        {{#if status}}
+            <ul class="contributors-list">
+            {{#each user in contributors}}
+              <li>
+                <div class="contributors-box">
+                   <h4>{{user.login}}</h4>
+                    <img class="avatar" {{bind-attr src=user.avatar_url}} alt="{{user.login}}"/>
+                    <a class="label label-purple">{{user.contributions}} Contributions</a>
+                    <a class="pure-button pure-button-contributor" {{bind-attr href=user.html_url}}>View Profile</a>
+                </div>
+              </li>
+            {{/each}}
+            <div class="clear"></div>
+            </ul>
+        {{else}}
+            <div id="loading-box" style="display:block;">
+              <div id="loading"></div>
+              <div>Loading Contributors...</div>
+            </div>
+        {{/if}}
+    </script>
+    <!-- GH Template -->
+    <script type="text/x-handlebars" data-template-name="gh">
+      <div class="page-container">
+        {{partial "gettingstarted"}}
+        <h1 class="content-subhead">Search for GitHub Repo</h1>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+              <form class="pure-form">
+                <fieldset class="pure-group">
+                  {{input type="text" class="pure-input-1-2 input-large" value=username placeholder="Username"}}
+                  {{input type="text" class="pure-input-1-2 input-large" value=package placeholder="Name of a Package"}}
+                </fieldset>
+                <button type="submit" class="pure-button pure-input-1-2 pure-button-secondary" {{action 'query'}}>Find</button>
+              </form>
+            </div>
+            <div class="pure-u-1-2">
+                {{partial "model"}}
+            </div>
+        </div>
+      </div>
+    </script>
+    <!-- NPM Template -->
+    <script type="text/x-handlebars" data-template-name="npm">
+      <div class="page-container">
+        {{partial "gettingstarted"}}
+        <h1 class="content-subhead">Search for NPM Package</h1>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+              <form class="pure-form">
+                <fieldset class="pure-group">
+                  {{input type="text" class="pure-input-1-2 input-large" value=package placeholder="Name of a Package"}}
+                </fieldset>
+                <button type="submit" class="pure-button pure-input-1-2 pure-button-success" {{action 'query'}}>Find</button>
+              </form>
+            </div>
+            <div class="pure-u-1-2">
+                {{partial "model"}}
+            </div>
+        </div>
+      </div>
+    </script>
+    <!-- GEM Template -->
+    <script type="text/x-handlebars" data-template-name="gem">
+      <div class="page-container">
+        {{partial "gettingstarted"}}
+        <h1 class="content-subhead">Search for Gem Package</h1>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+              <form class="pure-form">
+                <fieldset class="pure-group">
+                  {{input type="text" class="pure-input-1-2 input-large" value=package placeholder="Name of a Package"}}
+                </fieldset>
+                <button type="submit" class="pure-button pure-input-1-2 pure-button-error" {{action 'query'}}>Find</button>
+              </form>
+            </div>
+            <div class="pure-u-1-2">
+                {{partial "model"}}
+            </div>
+        </div>
+      </div>
+    </script>
+    <!-- BOWER Template -->
+    <script type="text/x-handlebars" data-template-name="bower">
+      <div class="page-container">
+       {{partial "gettingstarted"}}
+        <h1 class="content-subhead">Search for Bower Package</h1>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+              <form class="pure-form">
+                <fieldset class="pure-group">
+                  {{input type="text" class="pure-input-1-2 input-large" value=username placeholder="Username"}}
+                  {{input type="text" class="pure-input-1-2 input-large" value=package placeholder="Name of a Package"}}
+                </fieldset>
+                <button type="submit" class="pure-button pure-input-1-2 pure-button-warning" {{action 'query'}}>Find</button>
+              </form>
+            </div>
+            <div class="pure-u-1-2">
+                {{partial "model"}}
+            </div>
+        </div>
+      </div>
+    </script>
+  </head>
+
+  <body>
+
+    <%- body %>
+
+    <!-- Bring in the socket.io client -->
+    <script type="text/javascript" src="/js/socket.io.js"></script>
+    <!-- then beef it up with some convenience logic for talking to Sails.js -->
+    <script type="text/javascript" src="/js/sails.io.js"></script>
+    <!-- listen on socket.io for incoming messages -->
+    <script type="text/javascript" src="/js/app.js"></script>
+    <!-- dependencies -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.1.2/ember.prod.js"></script>
+    <!-- application -->
+    <script type="text/javascript" src="/js/bella.js"></script>
+
+    </body>
+<!--
+          |||                   |||
+|||           |||           |||     ||||||||||||
+|||       |||  |||         |||  ||| |||      |||
+|||       |||   |||       |||   ||| ||||||||||||
+|||       |||     |||    |||    ||| |||      |||
+||||||||| |||      ||||||       ||| |||      |||
+*-----------------------------------------------*
+                I LOVE YOU SO MUCH
+-->
+</html>
