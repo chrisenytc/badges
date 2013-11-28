@@ -1,4 +1,4 @@
-Badges [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/enytc/badges/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Badges [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/enytc/badges/trend.png)](https://bitdeli.com/free "Bitdeli Badge") [![GH version](https://badge-me.herokuapp.com/api/gh/enytc/badges.png)](http://badges.enytc.com/for/gh/enytc/badges)
 ===
 
 A version badge manager
